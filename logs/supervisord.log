@@ -1,0 +1,65 @@
+2024-08-16 00:40:21,255 INFO RPC interface 'supervisor' initialized
+2024-08-16 00:40:21,255 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2024-08-16 00:40:21,256 INFO daemonizing the supervisord process
+2024-08-16 00:40:21,256 INFO supervisord started with pid 40545
+2024-08-16 00:53:05,799 WARN received SIGTERM indicating exit request
+2024-08-16 00:53:14,952 INFO RPC interface 'supervisor' initialized
+2024-08-16 00:53:14,952 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2024-08-16 00:53:14,953 INFO daemonizing the supervisord process
+2024-08-16 00:53:14,953 INFO supervisord started with pid 48094
+2024-08-16 01:02:54,526 WARN received SIGTERM indicating exit request
+2024-08-16 01:10:09,850 INFO RPC interface 'supervisor' initialized
+2024-08-16 01:10:09,850 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2024-08-16 01:10:09,850 INFO RPC interface 'supervisor' initialized
+2024-08-16 01:10:09,850 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2024-08-16 01:10:09,851 INFO daemonizing the supervisord process
+2024-08-16 01:10:09,851 INFO supervisord started with pid 57093
+2024-08-16 01:17:38,650 WARN received SIGTERM indicating exit request
+2024-08-16 01:20:22,157 INFO RPC interface 'supervisor' initialized
+2024-08-16 01:20:22,157 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2024-08-16 01:20:22,157 INFO RPC interface 'supervisor' initialized
+2024-08-16 01:20:22,157 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2024-08-16 01:20:22,158 INFO daemonizing the supervisord process
+2024-08-16 01:20:22,158 INFO supervisord started with pid 62375
+2024-08-16 01:20:35,160 INFO spawned: 'hello_world' with pid 62551
+2024-08-16 01:20:35,167 WARN exited: hello_world (exit status 0; not expected)
+2024-08-16 01:20:36,169 INFO spawned: 'hello_world' with pid 62564
+2024-08-16 01:20:36,174 WARN exited: hello_world (exit status 0; not expected)
+2024-08-16 01:20:38,191 INFO spawned: 'hello_world' with pid 62600
+2024-08-16 01:20:38,195 WARN exited: hello_world (exit status 0; not expected)
+2024-08-16 01:20:41,244 INFO spawned: 'hello_world' with pid 62640
+2024-08-16 01:20:41,247 WARN exited: hello_world (exit status 0; not expected)
+2024-08-16 01:20:41,247 INFO gave up: hello_world entered FATAL state, too many start retries too quickly
+2024-08-16 01:21:36,622 WARN received SIGTERM indicating exit request
+2024-08-16 01:21:38,847 INFO RPC interface 'supervisor' initialized
+2024-08-16 01:21:38,847 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2024-08-16 01:21:38,847 INFO RPC interface 'supervisor' initialized
+2024-08-16 01:21:38,847 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2024-08-16 01:21:38,849 INFO daemonizing the supervisord process
+2024-08-16 01:21:38,849 INFO supervisord started with pid 63298
+2024-08-16 01:21:52,342 INFO spawned: 'hello_world' with pid 63459
+2024-08-16 01:21:52,346 WARN exited: hello_world (exit status 0; not expected)
+2024-08-16 01:21:53,348 INFO spawned: 'hello_world' with pid 63470
+2024-08-16 01:21:54,356 WARN exited: hello_world (exit status 0; not expected)
+2024-08-16 01:21:56,372 INFO spawned: 'hello_world' with pid 63530
+2024-08-16 01:21:56,389 WARN exited: hello_world (exit status 0; not expected)
+2024-08-16 01:21:59,406 INFO spawned: 'hello_world' with pid 63570
+2024-08-16 01:21:59,410 WARN exited: hello_world (exit status 0; not expected)
+2024-08-16 01:21:59,410 INFO gave up: hello_world entered FATAL state, too many start retries too quickly
+2024-08-16 01:22:42,807 WARN received SIGTERM indicating exit request
+2024-08-16 01:22:46,161 INFO RPC interface 'supervisor' initialized
+2024-08-16 01:22:46,161 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2024-08-16 01:22:46,162 INFO RPC interface 'supervisor' initialized
+2024-08-16 01:22:46,162 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2024-08-16 01:22:46,163 INFO daemonizing the supervisord process
+2024-08-16 01:22:46,163 INFO supervisord started with pid 64064
+2024-08-16 01:22:54,710 INFO spawned: 'hello_world' with pid 64186
+2024-08-16 01:22:55,718 INFO success: hello_world entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-08-16 01:22:55,718 INFO exited: hello_world (exit status 0; expected)
+2024-08-16 01:25:12,813 INFO RPC interface 'supervisor' initialized
+2024-08-16 01:25:12,813 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2024-08-16 01:25:12,813 INFO RPC interface 'supervisor' initialized
+2024-08-16 01:25:12,813 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2024-08-16 01:25:12,814 INFO daemonizing the supervisord process
+2024-08-16 01:25:12,815 INFO supervisord started with pid 65736
+2024-08-16 01:25:27,872 WARN received SIGTERM indicating exit request
