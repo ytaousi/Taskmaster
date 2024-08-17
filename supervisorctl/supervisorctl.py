@@ -40,7 +40,7 @@ class my_supervisorctl:
                 "start <name> <name>     Start multiple processes or groups\n"
                 "start all               Start all processes"
             ),
-            "version": "version         Print the version number of the remote superv"
+            "version": "version         Show the version of the remote supervisord process"
         }
     def display_help(self, command=None):
         if command:
