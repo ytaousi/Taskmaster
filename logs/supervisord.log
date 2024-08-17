@@ -1,10 +1,7 @@
-2024-08-16 21:26:39,532 INFO RPC interface 'supervisor' initialized
-2024-08-16 21:26:39,532 CRIT Server 'inet_http_server' running without any HTTP authentication checking
-2024-08-16 21:26:59,663 INFO RPC interface 'supervisor' initialized
-2024-08-16 21:26:59,663 CRIT Server 'inet_http_server' running without any HTTP authentication checking
-2024-08-16 21:34:07,922 INFO RPC interface 'supervisor' initialized
-2024-08-16 21:34:07,922 CRIT Server 'inet_http_server' running without any HTTP authentication checking
-2024-08-16 21:44:28,062 INFO RPC interface 'supervisor' initialized
-2024-08-16 21:44:28,063 CRIT Server 'inet_http_server' running without any HTTP authentication checking
-2024-08-16 21:46:50,473 INFO RPC interface 'supervisor' initialized
-2024-08-16 21:46:50,473 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2024-08-16 21:53:57,335 INFO RPC interface 'supervisor' initialized
+2024-08-16 21:53:57,335 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2024-08-16 21:53:57,335 INFO RPC interface 'supervisor' initialized
+2024-08-16 21:53:57,335 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2024-08-16 21:53:57,336 INFO daemonizing the supervisord process
+2024-08-16 21:53:57,336 INFO supervisord started with pid 24573
+2024-08-16 21:54:12,357 WARN received SIGTERM indicating exit request
