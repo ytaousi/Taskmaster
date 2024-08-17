@@ -1,30 +1,34 @@
 from supervisorctl import *
-from supervisord import *
-from multiprocessing import Process
+# from supervisord import *
+# from multiprocessing import Process
 import os
 
 
-class Taskmaster(Process):
-    def run(self):
-        print('module name:', __name__)
-        print('parent process:', os.getppid())
-        print('process id:', os.getpid())
-    def __init__(self, value):
-        Process.__init__(self)
-        self.value = value   
 
-def info(title):
-    print(title)
-    print('module name:', __name__)
-    print('parent process:', os.getppid())
-    print('process id:', os.getpid())
-
-def f(name):
-    info('function f')
-    print('hello', name)
+# i need to test if my_supervisorctl class only is working whitout using my_supervisord in the code
 
 if __name__ == '__main__':
-    info('main line')
-    process = Process(target=f, args=('bob',))
-    process.start()
-    process.join()
+    # Create a new instance of the class
+    my_supervisorctl = my_supervisorctl()
+    # Display the available commands
+    my_supervisorctl.displayCommands()
+    # Start a process
+    my_supervisorctl.start("my_process")
+    # Stop a process
+    my_supervisorctl.stop("my_process")
+    # Restart a process
+    my_supervisorctl.restart("my_process")
+    # Stop all processes
+    my_supervisorctl.shutdown()
+    # Reload the configuration file
+    my_supervisorctl.reload()
+    # Exit the supervisorctl shell
+    my_supervisorctl.quit()
+    # Show status of all processes
+    my_supervisorctl.status()
+    # Show the list of available commands
+    my_supervisorctl.help()
+    # Exit the supervisorctl shell
+    my_supervisorctl.exit()
+    
+    
