@@ -5,3 +5,10 @@
 2024-08-16 21:53:57,336 INFO daemonizing the supervisord process
 2024-08-16 21:53:57,336 INFO supervisord started with pid 24573
 2024-08-16 21:54:12,357 WARN received SIGTERM indicating exit request
+2024-08-17 17:51:23,215 INFO RPC interface 'supervisor' initialized
+2024-08-17 17:51:23,216 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2024-08-17 17:51:23,216 INFO RPC interface 'supervisor' initialized
+2024-08-17 17:51:23,217 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2024-08-17 17:51:23,217 INFO daemonizing the supervisord process
+2024-08-17 17:51:23,218 INFO supervisord started with pid 32594
+2024-08-17 17:51:48,767 WARN received SIGTERM indicating exit request

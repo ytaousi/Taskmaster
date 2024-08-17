@@ -4,22 +4,58 @@ import subprocess
 
 class my_supervisorctl:
     
-    def __init__(self, name="", *args, **kwargs):
-        self.name = name
+    def __init__(self, args):
         self.args = args
-        self.kwargs = kwargs
+        self.help_messages = {
+            "quit": "quit    Exit the supervisor shell.",
+            "exit": "exit    Exit the supervisor shell.",
+            "status": (
+                "status <name>           Get status for a single process\n"
+                "status <gname>:*        Get status for all processes in a group\n"
+                "status <name> <name>    Get status for multiple named processes\n"
+                "status                  Get all process status info"
+            ),
+            "help": (
+                "help            Print a list of available actions\n"
+                "help <action>   Print help for <action>"
+            ),
+            "reload": "reload          Restart the remote supervisord.",
+            "shutdown": "shutdown        Shut the remote supervisord down.",
+            "restart": (
+                "restart <name>          Restart a process\n"
+                "restart <gname>:*       Restart all processes in a group\n"
+                "restart <name> <name>   Restart multiple processes or groups\n"
+                "restart all             Restart all processes\n"
+                "Note: restart does not reread config files. For that, see reread and update."
+            ),
+            "stop": (
+                "stop <name>             Stop a process\n"
+                "stop <gname>:*          Stop all processes in a group\n"
+                "stop <name> <name>      Stop multiple processes or groups\n"
+                "stop all                Stop all processes"
+            ),
+            "start": (
+                "start <name>            Start a process\n"
+                "start <gname>:*         Start all processes in a group\n"
+                "start <name> <name>     Start multiple processes or groups\n"
+                "start all               Start all processes"
+            )
+        }
+    def display_help(self, command=None):
+        if command:
+            if command in self.help_messages:
+                print(self.help_messages[command])
+            else:
+                print(f"*** No help on {command}")
+        else:
+            self.displayCommands()
     
     def displayCommands(self):
-        print("Available commands:")
-        print("  start <name>    Start a process")
-        print("  stop <name>     Stop a process")
-        print("  restart <name>  Restart a process")
-        print("  shutdown        Stop all processes")
-        print("  reload          Reload the configuration file")
-        print("  quit            Exit the supervisorctl shell")
-        print("  status          Show status of all processes")
-        print("  help            Show the list of available commands")
-        print("  exit            Exit the supervisorctl shell")
+        print("default commands (type help <topic>):")
+        print("=====================================")
+        print("start     exit    reload  restart")
+        print("shutdown  status  stop    quit")
+        print("version   help")
     
     def start(self, name):
         print("Starting process: " + name)
@@ -41,9 +77,8 @@ class my_supervisorctl:
     
     def status(self):
         print("Showing status of all processes")
-    
+     
     def help(self):
-        print("Showing the list of available commands")
         self.displayCommands()
     
     def exit(self):

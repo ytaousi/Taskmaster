@@ -9,26 +9,9 @@ import os
 
 if __name__ == '__main__':
     # Create a new instance of the class
-    my_supervisorctl = my_supervisorctl()
+    supervisorclient = my_supervisorctl(args=[])
     # Display the available commands
-    my_supervisorctl.displayCommands()
-    # Start a process
-    my_supervisorctl.start("my_process")
-    # Stop a process
-    my_supervisorctl.stop("my_process")
-    # Restart a process
-    my_supervisorctl.restart("my_process")
-    # Stop all processes
-    my_supervisorctl.shutdown()
-    # Reload the configuration file
-    my_supervisorctl.reload()
-    # Exit the supervisorctl shell
-    my_supervisorctl.quit()
-    # Show status of all processes
-    my_supervisorctl.status()
-    # Show the list of available commands
-    my_supervisorctl.help()
-    # Exit the supervisorctl shell
-    my_supervisorctl.exit()
-    
+    # supervisorclient.displayCommands()
+    # Display the help message for specific command
+    supervisorclient.display_help("shutdown")
     
