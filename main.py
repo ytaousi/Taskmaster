@@ -1,5 +1,9 @@
-import my_supervisorctl
-import my_supervisord
+from supervisorctl import *
+from supervisord import *
+
+
+
+
 
 
 

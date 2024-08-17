@@ -1,1 +1,1 @@
-from my_supervisorctl import *
+from .supervisorctl import *

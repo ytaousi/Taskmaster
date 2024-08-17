@@ -1,1 +1,1 @@
-from my_supervisord import *
+from .supervisord import *
