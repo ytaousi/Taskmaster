@@ -58,14 +58,14 @@ class my_supervisorctl:
         print("shutdown  status  stop    quit")
         print("version   help")
     
-    def start(self, name):
-        print("Starting process: " + name)
+    def start(self):
+        print("Starting process: ")
     
-    def stop(self, name):
-        print("Stopping process: " + name)
+    def stop(self):
+        print("Stopping process: ")
     
-    def restart(self, name):
-        print("Restarting process: " + name)
+    def restart(self):
+        print("Restarting process: ")
     
     def shutdown(self):
         print("Stopping all processes")
@@ -73,16 +73,19 @@ class my_supervisorctl:
     def reload(self):
         print("Reloading the configuration file")
     
-    def quit(self):
-        print("Exiting the supervisorctl shell")
-    
     def status(self):
         print("Showing status of all processes")
      
     def help(self):
         self.displayCommands()
     
+    def quit(self):
+        print("Exiting the supervisorctl shell")
+
     def exit(self):
         print("Exiting the supervisorctl shell")
+    
+    def version(self):
+        print("My supervisorctl version Gheyerha.1.0.0")
 
 __all__ = ['my_supervisorctl']
