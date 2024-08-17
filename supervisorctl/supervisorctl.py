@@ -1,6 +1,3 @@
-import argparse
-import subprocess
-
 
 class my_supervisorctl:
     
@@ -11,7 +8,6 @@ class my_supervisorctl:
             "exit": "exit    Exit the supervisor shell.",
             "status": (
                 "status <name>           Get status for a single process\n"
-                "status <gname>:*        Get status for all processes in a group\n"
                 "status <name> <name>    Get status for multiple named processes\n"
                 "status                  Get all process status info"
             ),
@@ -23,20 +19,17 @@ class my_supervisorctl:
             "shutdown": "shutdown        Shut the remote supervisord down.",
             "restart": (
                 "restart <name>          Restart a process\n"
-                "restart <gname>:*       Restart all processes in a group\n"
                 "restart <name> <name>   Restart multiple processes or groups\n"
                 "restart all             Restart all processes\n"
                 "Note: restart does not reread config files. For that, see reread and update."
             ),
             "stop": (
                 "stop <name>             Stop a process\n"
-                "stop <gname>:*          Stop all processes in a group\n"
                 "stop <name> <name>      Stop multiple processes or groups\n"
                 "stop all                Stop all processes"
             ),
             "start": (
                 "start <name>            Start a process\n"
-                "start <gname>:*         Start all processes in a group\n"
                 "start <name> <name>     Start multiple processes or groups\n"
                 "start all               Start all processes"
             ),
@@ -58,14 +51,14 @@ class my_supervisorctl:
         print("shutdown  status  stop    quit")
         print("version   help")
     
-    def start(self):
-        print("Starting process: ")
+    def start(self, process):
+        print(f"Starting process: {process}")
     
-    def stop(self):
-        print("Stopping process: ")
+    def stop(self, process):
+        print(f"Stopping process: {process}")
     
-    def restart(self):
-        print("Restarting process: ")
+    def restart(self, process):
+        print(f"Restarting process: {process}")
     
     def shutdown(self):
         print("Stopping all processes")
