@@ -95,3 +95,99 @@
 2024-08-17 23:52:00,788 INFO spawned: 'hello_world' with pid 25426
 2024-08-17 23:53:54,124 INFO waiting for hello_world to stop
 2024-08-17 23:53:54,125 WARN stopped: hello_world (terminated by SIGTERM)
+2024-08-18 01:24:26,560 INFO RPC interface 'supervisor' initialized
+2024-08-18 01:24:26,560 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2024-08-18 01:24:26,897 INFO RPC interface 'supervisor' initialized
+2024-08-18 01:24:26,897 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2024-08-18 01:24:26,898 INFO daemonizing the supervisord process
+2024-08-18 01:24:26,898 INFO supervisord started with pid 26496
+2024-08-18 01:24:27,903 INFO spawnerr: can't find command '/usr/bin/node'
+2024-08-18 01:24:28,907 INFO spawnerr: can't find command '/usr/bin/node'
+2024-08-18 01:24:30,910 INFO spawnerr: can't find command '/usr/bin/node'
+2024-08-18 01:24:33,920 INFO spawnerr: can't find command '/usr/bin/node'
+2024-08-18 01:24:33,920 INFO gave up: nodehook entered FATAL state, too many start retries too quickly
+2024-08-18 01:26:17,654 WARN received SIGTERM indicating exit request
+2024-08-18 01:26:36,269 INFO RPC interface 'supervisor' initialized
+2024-08-18 01:26:36,269 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2024-08-18 01:26:36,270 INFO RPC interface 'supervisor' initialized
+2024-08-18 01:26:36,270 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2024-08-18 01:26:36,271 INFO daemonizing the supervisord process
+2024-08-18 01:26:36,271 INFO supervisord started with pid 28079
+2024-08-18 01:26:37,279 INFO spawnerr: command at '/home/normal-user/Desktop/nodeV20.16.0/bin' is a directory
+2024-08-18 01:26:38,285 INFO spawnerr: command at '/home/normal-user/Desktop/nodeV20.16.0/bin' is a directory
+2024-08-18 01:26:40,291 INFO spawnerr: command at '/home/normal-user/Desktop/nodeV20.16.0/bin' is a directory
+2024-08-18 01:26:43,299 INFO spawnerr: command at '/home/normal-user/Desktop/nodeV20.16.0/bin' is a directory
+2024-08-18 01:26:43,299 INFO gave up: nodehook entered FATAL state, too many start retries too quickly
+2024-08-18 01:27:33,697 INFO RPC interface 'supervisor' initialized
+2024-08-18 01:27:33,698 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2024-08-18 01:27:33,698 INFO RPC interface 'supervisor' initialized
+2024-08-18 01:27:33,698 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2024-08-18 01:27:33,698 INFO supervisord started with pid 28079
+2024-08-18 01:27:34,701 INFO spawned: 'nodehook' with pid 28767
+2024-08-18 01:27:34,704 WARN exited: nodehook (exit status 127; not expected)
+2024-08-18 01:27:35,709 INFO spawned: 'nodehook' with pid 28792
+2024-08-18 01:27:35,716 WARN exited: nodehook (exit status 127; not expected)
+2024-08-18 01:27:38,541 INFO spawned: 'nodehook' with pid 28832
+2024-08-18 01:27:38,544 WARN exited: nodehook (exit status 127; not expected)
+2024-08-18 01:27:41,984 INFO spawned: 'nodehook' with pid 28883
+2024-08-18 01:27:41,987 WARN exited: nodehook (exit status 127; not expected)
+2024-08-18 01:27:42,988 INFO gave up: nodehook entered FATAL state, too many start retries too quickly
+2024-08-18 01:27:52,978 INFO spawned: 'nodehook' with pid 29004
+2024-08-18 01:27:52,981 WARN exited: nodehook (exit status 127; not expected)
+2024-08-18 01:27:53,983 INFO spawned: 'nodehook' with pid 29013
+2024-08-18 01:27:53,986 WARN exited: nodehook (exit status 127; not expected)
+2024-08-18 01:27:55,996 INFO spawned: 'nodehook' with pid 29030
+2024-08-18 01:27:55,999 WARN exited: nodehook (exit status 127; not expected)
+2024-08-18 01:27:59,012 INFO spawned: 'nodehook' with pid 29066
+2024-08-18 01:27:59,015 WARN exited: nodehook (exit status 127; not expected)
+2024-08-18 01:27:59,015 INFO gave up: nodehook entered FATAL state, too many start retries too quickly
+2024-08-18 01:28:23,296 INFO RPC interface 'supervisor' initialized
+2024-08-18 01:28:23,296 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2024-08-18 01:28:23,296 INFO RPC interface 'supervisor' initialized
+2024-08-18 01:28:23,296 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2024-08-18 01:28:23,296 INFO supervisord started with pid 28079
+2024-08-18 01:28:24,299 INFO spawned: 'nodehook' with pid 29303
+2024-08-18 01:28:25,839 INFO success: nodehook entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-08-18 01:29:22,431 WARN received SIGTERM indicating exit request
+2024-08-18 01:29:22,432 INFO waiting for nodehook to die
+2024-08-18 01:29:22,433 WARN stopped: nodehook (terminated by SIGTERM)
+2024-08-18 01:31:59,018 INFO RPC interface 'supervisor' initialized
+2024-08-18 01:31:59,018 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2024-08-18 01:31:59,018 INFO RPC interface 'supervisor' initialized
+2024-08-18 01:31:59,018 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2024-08-18 01:31:59,019 INFO daemonizing the supervisord process
+2024-08-18 01:31:59,019 INFO supervisord started with pid 31540
+2024-08-18 01:32:00,032 INFO spawned: 'nodehook' with pid 31566
+2024-08-18 01:32:01,054 INFO success: nodehook entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-08-18 01:40:44,402 WARN received SIGTERM indicating exit request
+2024-08-18 01:40:44,402 INFO waiting for nodehook to die
+2024-08-18 01:40:44,404 WARN stopped: nodehook (terminated by SIGTERM)
+2024-08-18 01:51:30,360 INFO RPC interface 'supervisor' initialized
+2024-08-18 01:51:30,360 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2024-08-18 01:51:30,360 INFO RPC interface 'supervisor' initialized
+2024-08-18 01:51:30,360 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2024-08-18 01:51:30,361 INFO daemonizing the supervisord process
+2024-08-18 01:51:30,361 INFO supervisord started with pid 43226
+2024-08-18 01:51:31,367 INFO spawned: 'nodehook' with pid 43252
+2024-08-18 01:51:32,388 INFO success: nodehook entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-08-18 01:51:46,113 ERRO 127.0.0.1:37388 - - [18/Aug/2024:05:51:46 -0500] "GET /?message=ERROR%3A%20Process%20nginx%3A%20no%20such%20file HTTP/1.1" 200 3889
+2024-08-18 01:51:48,895 ERRO 127.0.0.1:37388 - - [18/Aug/2024:05:51:48 -0500] "GET /?message=ERROR%3A%20Process%20nginx%3A%20no%20such%20file HTTP/1.1" 200 3889
+2024-08-18 01:51:49,682 ERRO 127.0.0.1:37388 - - [18/Aug/2024:05:51:49 -0500] "GET /?message=ERROR%3A%20Process%20nginx%3A%20no%20such%20file HTTP/1.1" 200 3889
+2024-08-18 01:52:41,575 INFO waiting for nodehook to die
+2024-08-18 01:52:41,577 WARN stopped: nodehook (terminated by SIGTERM)
+2024-08-18 01:52:41,578 INFO RPC interface 'supervisor' initialized
+2024-08-18 01:52:41,579 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2024-08-18 01:52:41,579 INFO RPC interface 'supervisor' initialized
+2024-08-18 01:52:41,579 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2024-08-18 01:52:41,579 INFO supervisord started with pid 43226
+2024-08-18 01:52:42,581 INFO spawned: 'nodehook' with pid 43961
+2024-08-18 01:52:44,428 INFO success: nodehook entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-08-18 01:53:42,624 INFO waiting for nodehook to die
+2024-08-18 01:53:42,625 WARN stopped: nodehook (terminated by SIGTERM)
+2024-08-18 01:53:42,627 INFO RPC interface 'supervisor' initialized
+2024-08-18 01:53:42,627 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2024-08-18 01:53:42,627 INFO RPC interface 'supervisor' initialized
+2024-08-18 01:53:42,627 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2024-08-18 01:53:42,628 INFO supervisord started with pid 43226
+2024-08-18 01:53:43,631 INFO spawned: 'nodehook' with pid 44636
+2024-08-18 01:53:45,618 INFO success: nodehook entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
