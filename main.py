@@ -1,9 +1,15 @@
 from supervisorctl import *
 # from supervisord import *
-# from multiprocessing import Process
-import os
+import readline
+
 
 def main():
+    # Initialize readline for command history
+    readline.parse_and_bind('tab: complete')
+    readline.parse_and_bind('set editing-mode vi')
+    readline.parse_and_bind('set keymap vi')
+    readline.parse_and_bind('set history-size 1000')
+
     # Create a new instance of the class
     supervisorclient = my_supervisorctl(args=[])
 

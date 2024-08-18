@@ -61,10 +61,27 @@ class my_supervisorctl:
         print(f"Restarting process: {process}")
     
     def shutdown(self):
-        print("Stopping all processes")
+        confirmation = input("Really shut the remote supervisord process down y/N? ").strip().lower()
+        if confirmation == 'y':
+            # Proceed with the shutdown
+            try:
+                # class my_supervisord not implemented yet
+                #self.supervisor.shutdown()
+                print("Remote supervisord process has been shut down.")
+            except Exception as e:
+                print(f"Failed to shut down the remote supervisord process: {e}")
+
     
     def reload(self):
-        print("Reloading the configuration file")
+        confirmation = input("Really restart the remote supervisord process y/N? ").strip().lower()
+        if confirmation == 'y':
+            # Proceed with the restart
+            try:
+                # class my_supervisord not implemented yet
+                #self.supervisor.reload()
+                print("Remote supervisord process has been restarted.")
+            except Exception as e:
+                print(f"Failed to restart the remote supervisord process: {e}")
     
     def status(self):
         print("Showing status of all processes")
