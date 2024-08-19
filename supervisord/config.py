@@ -53,10 +53,18 @@ class configFile:
 
             if line.startswith('[') and line.endswith(']'):
                 section = line[1:-1]
+                if section not in self.sections and not section.startswith("program:"):
+                    print(f"Error: Unknown section '{section}' in configuration file.")
+                    is_valid = False
                 seen_keys[section] = set()
                 continue
 
-            if section and '=' in line:
+            if section:
+                if '=' not in line:
+                    print(f"Error: Invalid line '{line}' in section '{section}'. Expected 'key=value' format.")
+                    is_valid = False
+                    continue
+
                 key = line.split('=', 1)[0].strip()
                 if key in seen_keys[section]:
                     print(f"Error: Duplicate key '{key}' found in section '{section}'.")
@@ -67,17 +75,9 @@ class configFile:
                     print(f"Warning: Unknown key '{key}' in section '{section}'.")
                     is_valid = False
 
-            if section and section not in self.sections and not section.startswith("program:"):
-                print(f"Warning: Unknown section '{section}' in configuration file.")
-                is_valid = False
-
         return is_valid
 
     def print_config(self):
-        for section in self.config.sections():
-            print(f'[{section}]')
-            for key, value in self.config.items(section):
-                print(f'{key} = {value}')
-            print()
+        print(self.raw_config)
 
 __all__ = ['configFile']
