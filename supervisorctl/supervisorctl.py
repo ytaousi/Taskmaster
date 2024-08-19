@@ -5,7 +5,11 @@ class my_supervisorctl:
     
     def __init__(self, args):
         self.args = args
+        self.command = my_command
 
+    def execute_command(self, command):
+        cmd = self.command(command)
+        cmd.execute()
     
 
 def main():
@@ -22,9 +26,8 @@ def main():
         # Prompt the user for a command
         command = input("supervisorctl> ").strip()
 
-        # Initialize my_command with the input command and supervisorclient
-        cmd = my_command(command)
-        cmd.execute()
+        # Execute the command using the supervisorclient
+        supervisorclient.execute_command(command)
 
         # Exit the loop if the command is 'exit' or 'quit'
         if command in ['exit', 'quit']:
