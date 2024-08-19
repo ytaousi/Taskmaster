@@ -241,3 +241,27 @@
 2024-08-19 17:53:21,622 INFO supervisord started with pid 15560
 2024-08-19 17:53:22,626 INFO spawned: 'nodehook' with pid 15586
 2024-08-19 17:53:23,649 INFO success: nodehook entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-08-19 18:14:16,976 WARN received SIGTERM indicating exit request
+2024-08-19 18:14:16,976 INFO waiting for nodehook to die
+2024-08-19 18:14:16,977 WARN stopped: nodehook (terminated by SIGTERM)
+2024-08-19 18:24:48,160 WARN For [program:nodehook], redirect_stderr=true but stderr_logfile has also been set to a filename, the filename has been ignored
+2024-08-19 18:24:48,160 WARN For [program:nginx], redirect_stderr=true but stderr_logfile has also been set to a filename, the filename has been ignored
+2024-08-19 18:24:48,163 INFO RPC interface 'supervisor' initialized
+2024-08-19 18:24:48,163 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2024-08-19 18:24:48,163 INFO RPC interface 'supervisor' initialized
+2024-08-19 18:24:48,163 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2024-08-19 18:24:48,164 INFO daemonizing the supervisord process
+2024-08-19 18:24:48,164 INFO supervisord started with pid 32774
+2024-08-19 18:24:49,166 INFO spawned: 'nodehook' with pid 32791
+2024-08-19 18:24:50,203 INFO success: nodehook entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-08-19 18:24:56,603 INFO waiting for nodehook to die
+2024-08-19 18:24:56,604 WARN stopped: nodehook (terminated by SIGTERM)
+2024-08-19 18:24:56,606 WARN For [program:nodehook], redirect_stderr=true but stderr_logfile has also been set to a filename, the filename has been ignored
+2024-08-19 18:24:56,606 WARN For [program:nginx], redirect_stderr=true but stderr_logfile has also been set to a filename, the filename has been ignored
+2024-08-19 18:24:56,606 INFO RPC interface 'supervisor' initialized
+2024-08-19 18:24:56,606 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2024-08-19 18:24:56,606 INFO RPC interface 'supervisor' initialized
+2024-08-19 18:24:56,606 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2024-08-19 18:24:56,606 INFO supervisord started with pid 32774
+2024-08-19 18:24:57,612 INFO spawned: 'nodehook' with pid 32947
+2024-08-19 18:24:58,633 INFO success: nodehook entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)

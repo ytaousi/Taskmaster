@@ -55,10 +55,7 @@ def main():
         # Execute the command using the supervisorclient
         supervisorclient.execute_command(command)
         
-
-        # Exit the loop if the command is 'exit' or 'quit'
-        if command in ['exit', 'quit']:
-            break
+        
 
 if __name__ == '__main__':
     main()

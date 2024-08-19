@@ -1,3 +1,5 @@
+import subprocess
+
 class my_command:
     def __init__(self, name):
         self.name = name
@@ -39,8 +41,13 @@ class my_command:
             self.quit()
         elif self.name == 'exit':
             self.exit()
-        elif self.name == 'version':
-            self.version()
+        elif self.name.startswith('version'):
+            parts = self.name.split()
+            if len(parts) == 1:
+                self.version()
+            else:
+                print(f"Error: version accepts no arguments")
+                self.display_help('version')
         elif self.name.startswith('start'):
             parts = self.name.split()
             if len(parts) == 1:
@@ -59,8 +66,13 @@ class my_command:
                     self.restart(process)
         elif self.name == 'reload':
             self.reload()
-        elif self.name == 'shutdown':
-            self.shutdown()
+        elif self.name.startswith('shutdown'):
+            parts = self.name.split()
+            if len(parts) == 1:
+                self.shutdown()
+            else:
+                print(f"Error: shutdown accepts no arguments")
+                self.display_help('shutdown')
         elif self.name.startswith('stop'):
             parts = self.name.split()
             if len(parts) == 1:
@@ -83,10 +95,10 @@ class my_command:
             print(f"*** Unknown syntax: {self.name}")
 
     def quit(self):
-        print("Exiting the supervisorctl shell")
+        subprocess.call(["echo", "quit() called sending SIGQUIT"])
 
     def exit(self):
-        print("Exiting the supervisorctl shell")
+        subprocess.call(["echo", "exit() called sending SIGQUIT"])
     
     def version(self):
         print("My supervisorctl version Gheyerha.1.0.0")
@@ -104,6 +116,7 @@ class my_command:
         confirmation = input("Really shut the remote supervisord process down y/N? ").strip().lower()
         if confirmation == 'y':
             try:
+                subprocess.call(["echo", "sending SIGQUIT to the remote supervisord process"])
                 print("Remote supervisord process has been shut down.")
             except Exception as e:
                 print(f"Failed to shut down the remote supervisord process: {e}")
@@ -112,7 +125,8 @@ class my_command:
         confirmation = input("Really restart the remote supervisord process y/N? ").strip().lower()
         if confirmation == 'y':
             try:
-                print("Remote supervisord process has been restarted.")
+                subprocess.call(["echo", "sending SIGHUP to the remote supervisord process"])
+                print("Remote supervisord process has reloaded The configuration.")
             except Exception as e:
                 print(f"Failed to restart the remote supervisord process: {e}")
     
@@ -137,3 +151,5 @@ class my_command:
                 print(f"*** No help on {command}")
         else:
             self.displayCommands()
+    
+    
