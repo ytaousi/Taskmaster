@@ -1,7 +1,6 @@
 class my_command:
-    def __init__(self, name, supervisorclient):
+    def __init__(self, name):
         self.name = name
-        self.supervisorclient = supervisorclient
         self.help_messages = {
             "quit": "quit    Exit the supervisor shell.",
             "exit": "exit    Exit the supervisor shell.",

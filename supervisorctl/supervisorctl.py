@@ -23,7 +23,7 @@ def main():
         command = input("supervisorctl> ").strip()
 
         # Initialize my_command with the input command and supervisorclient
-        cmd = my_command(command, supervisorclient)
+        cmd = my_command(command)
         cmd.execute()
 
         # Exit the loop if the command is 'exit' or 'quit'
