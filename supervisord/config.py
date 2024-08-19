@@ -55,3 +55,5 @@ class configFile:
             for key, value in self.config.items(section):
                 print(f'{key} = {value}')
             print()
+
+__all__ = ['configFile']
