@@ -1,17 +1,22 @@
 import argparse
 import sys
 import os
+import subprocess
 from config import configFile
 
 class my_supervisord:
     def __init__(self, args):
         self.config_file = configFile(args)
-    
+        #self.pid = subprocess.call(["lsof", "-t -i:9001 -sTCP:LISTEN"])
+        self.pid = os.getpid()
+
     def print_config(self):
         if self.config_file.is_valid:
             self.config_file.print_config()
         else:
             print("Invalid configuration file. Please fix the warnings and try again.")
+    def getPid(self):
+        return self.pid
 
 def main():
     parser = argparse.ArgumentParser(description='Supervisord')
@@ -25,6 +30,8 @@ def main():
     except FileNotFoundError as e:
         print(e, file=sys.stderr)
         sys.exit(1)
+
+__all__ = ['my_supervisord']
 
 if __name__ == '__main__':
     main()
