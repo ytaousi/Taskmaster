@@ -3,6 +3,7 @@ import sys
 import os
 from config import configFile
 import socket
+from logHandler import supervisorLogHandler
 
 class my_supervisord:
     def __init__(self, args):
@@ -17,15 +18,13 @@ class my_supervisord:
     def getPid(self):
         os.getpid()
 
-def main():
-    parser = argparse.ArgumentParser(description='Supervisord')
-    default_config_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'config.ini')
-    parser.add_argument('-c', '--config_file', type=str, default=default_config_path, help='Path to the configuration file')
-    args = parser.parse_args()
-    
-    try:
-        supervisor = my_supervisord(args)
-        #supervisor.print_config()
+    def initPrograms(self):
+        pass 
+
+    def watchPrograms(self):
+        pass
+
+    def initServer(self, supervisor):
         serv = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         serv.bind(('0.0.0.0', 9002))
         serv.listen(5)
@@ -39,6 +38,21 @@ def main():
                 conn.send(f"{supervisor.getPid()}\n".encode())
             conn.close()
             print ('client disconnected and shutdown')
+
+    def initLogHandler(self):
+        logHandler = supervisorLogHandler(self.config_file)
+        
+
+def main():
+    parser = argparse.ArgumentParser(description='Supervisord')
+    default_config_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'config.ini')
+    parser.add_argument('-c', '--config_file', type=str, default=default_config_path, help='Path to the configuration file')
+    args = parser.parse_args()
+    
+    try:
+        supervisor = my_supervisord(args)
+        #supervisor.print_config()
+        supervisor.initServer(supervisor)
     except FileNotFoundError as e:
         print(e, file=sys.stderr)
         sys.exit(1)
