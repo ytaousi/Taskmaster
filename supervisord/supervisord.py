@@ -8,7 +8,6 @@ class my_supervisord:
     def __init__(self, args):
         self.config_file = configFile(args)
         #self.pid = subprocess.call(["lsof", "-t -i:9001 -sTCP:LISTEN"])
-        self.pid = os.getpid()
 
     def print_config(self):
         if self.config_file.is_valid:
@@ -16,7 +15,7 @@ class my_supervisord:
         else:
             print("Invalid configuration file. Please fix the warnings and try again.")
     def getPid(self):
-        return self.pid
+        os.getpid()
 
 def main():
     parser = argparse.ArgumentParser(description='Supervisord')
@@ -26,25 +25,23 @@ def main():
     
     try:
         supervisor = my_supervisord(args)
-        supervisor.print_config()
+        #supervisor.print_config()
+        serv = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        serv.bind(('0.0.0.0', 9002))
+        serv.listen(5)
+        while True:
+            conn, addr = serv.accept()
+            from_client = ''
+            while True:
+                data = conn.recv(4096)
+                if not data: break
+                from_client += data.decode('utf8')
+                conn.send(f"{supervisor.getPid()}\n".encode())
+            conn.close()
+            print ('client disconnected and shutdown')
     except FileNotFoundError as e:
         print(e, file=sys.stderr)
         sys.exit(1)
-    
-    serv = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    serv.bind(('0.0.0.0', 9002))
-    serv.listen(5)
-    while True:
-        conn, addr = serv.accept()
-        from_client = ''
-        while True:
-            data = conn.recv(4096)
-            if not data: break
-            from_client += data.decode('utf8')
-            print (f'From client: {from_client}')
-            conn.send("I am SERVER\n".encode())
-        conn.close()
-        print ('client disconnected and shutdown')
 
 __all__ = ['my_supervisord']
 
