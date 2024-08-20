@@ -265,3 +265,30 @@
 2024-08-19 18:24:56,606 INFO supervisord started with pid 32774
 2024-08-19 18:24:57,612 INFO spawned: 'nodehook' with pid 32947
 2024-08-19 18:24:58,633 INFO success: nodehook entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-08-19 21:21:41,073 WARN For [program:nodehook], redirect_stderr=true but stderr_logfile has also been set to a filename, the filename has been ignored
+2024-08-19 21:21:41,073 WARN For [program:nginx], redirect_stderr=true but stderr_logfile has also been set to a filename, the filename has been ignored
+2024-08-19 21:21:41,086 INFO RPC interface 'supervisor' initialized
+2024-08-19 21:21:41,086 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2024-08-19 21:21:41,388 INFO RPC interface 'supervisor' initialized
+2024-08-19 21:21:41,388 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2024-08-19 21:21:41,389 INFO daemonizing the supervisord process
+2024-08-19 21:21:41,389 INFO supervisord started with pid 48006
+2024-08-19 21:21:42,392 INFO spawned: 'nodehook' with pid 48032
+2024-08-19 21:21:44,114 INFO success: nodehook entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-08-19 21:21:49,492 WARN For [program:nodehook], redirect_stderr=true but stderr_logfile has also been set to a filename, the filename has been ignored
+2024-08-19 21:21:49,492 WARN For [program:nginx], redirect_stderr=true but stderr_logfile has also been set to a filename, the filename has been ignored
+2024-08-19 22:17:52,044 WARN For [program:nodehook], redirect_stderr=true but stderr_logfile has also been set to a filename, the filename has been ignored
+2024-08-19 22:17:52,044 WARN For [program:nginx], redirect_stderr=true but stderr_logfile has also been set to a filename, the filename has been ignored
+2024-08-19 22:18:00,657 WARN received SIGTERM indicating exit request
+2024-08-19 22:18:00,657 INFO waiting for nodehook to die
+2024-08-19 22:18:00,658 WARN stopped: nodehook (terminated by SIGTERM)
+2024-08-19 22:18:03,100 WARN For [program:nodehook], redirect_stderr=true but stderr_logfile has also been set to a filename, the filename has been ignored
+2024-08-19 22:18:03,100 WARN For [program:nginx], redirect_stderr=true but stderr_logfile has also been set to a filename, the filename has been ignored
+2024-08-19 22:18:03,102 INFO RPC interface 'supervisor' initialized
+2024-08-19 22:18:03,102 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2024-08-19 22:18:03,102 INFO RPC interface 'supervisor' initialized
+2024-08-19 22:18:03,102 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2024-08-19 22:18:03,103 INFO daemonizing the supervisord process
+2024-08-19 22:18:03,104 INFO supervisord started with pid 79418
+2024-08-19 22:18:04,106 INFO spawned: 'nodehook' with pid 79450
+2024-08-19 22:18:05,128 INFO success: nodehook entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)

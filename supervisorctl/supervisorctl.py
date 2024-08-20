@@ -1,7 +1,8 @@
 import readline
-from command import my_command
-from supervisord import my_supervisord
 import subprocess
+from command import my_command
+import signal
+import os
 
 class my_supervisorctl:
     
@@ -15,25 +16,30 @@ class my_supervisorctl:
             "SIGUSR2": "User-defined signal 2",
             "SIGQUIT": "Quit"
         }
+        #self.pid = 
 
     def execute_command(self, command):
         cmd = self.command(command)
         cmd.execute()
     
-    def send_signal(self, signal, supervisord_pid):
-        if signal in self.signals:
-            if signal == "SIGUSR2":
-                subprocess.call(["echo", "sending SIGUSR2"]) #str(supervisord_pid)
-            if signal == "SIGQUIT":
-                subprocess.call(["echo", "sending SIGQUIT"])
-            if signal == "SIGTERM":
-                subprocess.call(["echo", "sending SIGTERM"])
-            if signal == "SIGHUP":
-                subprocess.call(["echo", "sending SIGHUP"])
-            if signal == "SIGINT":
-                subprocess.call(["echo", "sending SIGINT"])
-        else:
-            print(f"Unknown signal {signal}")
+    def send_signal(self, signal, frame):
+        print(f"Caught signal {signal} ({self.signals[signal]})")
+        if signal == signal.SIGQUIT:
+            print("Sending SIGQUIT to the server")
+            os.kill(os.getpid(), signal.SIGQUIT)
+        if signal == signal.SIGTERM:
+            print("Sending SIGTERM to the server")
+            os.kill(os.getpid(), signal.SIGTERM)
+        if signal == signal.SIGINT:
+            print("Sending SIGINT to the server")
+            os.kill(os.getpid(), signal.SIGINT)
+        if signal == signal.SIGUSR2:
+            print("Sending SIGUSR2 to the server")
+            os.kill(os.getpid(), signal.SIGUSR2)
+        if signal == signal.SIGHUP:
+            print("Sending SIGHUP to the server")
+            os.kill(os.getpid(), signal.SIGHUP)
+
 
 def main():
     # Initialize readline for command history
@@ -44,17 +50,17 @@ def main():
 
     # Create a new instance of the class
     supervisorclient = my_supervisorctl(args=[])
-    # Get the PID of the supervisord process
-    supervisord_pid = my_supervisord(args=[])
-    
-    supervisorclient.send_signal("SIGUSR2", supervisord_pid.getPid())
-    while True:
-        # Prompt the user for a command
-        command = input("supervisorctl> ").strip()
+    try :
+        while True:
+            # Prompt the user for a command
+            command = input("supervisorctl> ").strip()
 
-        # Execute the command using the supervisorclient
-        supervisorclient.execute_command(command)
-        
+            # Execute the command using the supervisorclient
+            supervisorclient.execute_command(command)
+    except KeyboardInterrupt:
+        exit(0)
+    except EOFError:
+        exit(0)
         
 
 if __name__ == '__main__':

@@ -95,10 +95,10 @@ class my_command:
             print(f"*** Unknown syntax: {self.name}")
 
     def quit(self):
-        subprocess.call(["echo", "quit() called sending SIGQUIT"])
+        exit(0)
 
     def exit(self):
-        subprocess.call(["echo", "exit() called sending SIGQUIT"])
+        exit(0)
     
     def version(self):
         print("My supervisorctl version Gheyerha.1.0.0")
