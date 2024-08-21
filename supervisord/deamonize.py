@@ -37,5 +37,6 @@ def main():
         time.sleep(5)  # Sleep for a bit before logging again
 
 if __name__ == "__main__":
-    #daemonize()
+    # demonize the process to run in the background
+    # daemonize()
     main()
