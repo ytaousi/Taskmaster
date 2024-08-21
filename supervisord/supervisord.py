@@ -2,8 +2,8 @@ import argparse
 import sys
 import os
 from config import configFile
-import socket
 from logHandler import supervisorLogHandler
+import socket
 
 class my_supervisord:
     def __init__(self, args):
@@ -15,6 +15,7 @@ class my_supervisord:
             self.config_file.print_config()
         else:
             print("Invalid configuration file. Please fix the warnings and try again.")
+
     def getPid(self):
         os.getpid()
 
@@ -22,14 +23,40 @@ class my_supervisord:
         pass 
 
     def watchPrograms(self):
+
+        self.collectLogs()
         pass
 
-    def initServer(self, supervisor):
+    def initServer(self):
+
+        self.initPrograms()
+        self.watchPrograms()
         pass
 
-    def initLogHandler(self):
+    def collectLogs(self):
         logHandler = supervisorLogHandler(self.config_file)
-        
+    
+    def daemonize(self):
+        # First fork to create a background process
+        if os.fork() > 0:
+            sys.exit(0)  # Exit parent process
+
+        os.chdir('/')
+        os.setsid()  # Create a new session
+        os.umask(0)
+
+        # Second fork to prevent the process from acquiring a controlling terminal
+        if os.fork() > 0:
+            sys.exit(0)  # Exit the second parent process
+
+        # Redirect standard file descriptors to /dev/null
+        sys.stdout.flush()
+        sys.stderr.flush()
+        with open('/dev/null', 'r') as devnull:
+            os.dup2(devnull.fileno(), sys.stdin.fileno())
+        with open('/dev/null', 'a+') as devnull:
+            os.dup2(devnull.fileno(), sys.stdout.fileno())
+            os.dup2(devnull.fileno(), sys.stderr.fileno())
 
 def main():
     parser = argparse.ArgumentParser(description='Supervisord')
@@ -40,7 +67,10 @@ def main():
     try:
         supervisor = my_supervisord(args)
         #supervisor.print_config()
-        supervisor.initServer(supervisor)
+        supervisor.initServer()
+        
+        
+        #supervisor.daemonize()
     except FileNotFoundError as e:
         print(e, file=sys.stderr)
         sys.exit(1)

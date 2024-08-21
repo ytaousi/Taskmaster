@@ -2,16 +2,14 @@ import logging
 import logging.handlers
 import os
 
-class uptimeEndpointFilter(logging.Filter):
-    def filter(self, record: logging.LogRecord) -> bool:
-        if "GET /up" in record.msg:
-            return False
-        else:
-            return True
-
 class supervisorLogHandler:
     def __init__(self, args):
         self.args = args
+
+    def setupHandlers(self):
+        pass
+
+    def initLogger(self):
         self.loger = logging.getLogger("supervisor log file")
         self.loger.name = "supervisord logger"
         self.loger.setLevel(logging.INFO)
@@ -20,12 +18,13 @@ class supervisorLogHandler:
         self.handler = logging.FileHandler(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'logs/supervisor.log'))
         self.handler.setFormatter(self.formatter)
         self.loger.addHandler(self.handler)
-
-    def setupHandlers(self):
+    
+    def collectLogs(self):
         pass
 
-    def initLogger(self):
-        logging.basicConfig(format="%(levelname)s | %(asctime)s | %(message)s")
+    def writeLogs(self):
+        pass
+        
 
 
 def main():
