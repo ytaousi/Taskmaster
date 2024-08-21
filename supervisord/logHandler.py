@@ -6,24 +6,49 @@ class supervisorLogHandler:
     def __init__(self, args):
         self.args = args
 
-    def setupHandlers(self):
-        pass
-
-    def initLogger(self):
+    def initFileLogger(self):
         self.loger = logging.getLogger("supervisor log file")
-        self.loger.name = "supervisord logger"
+        self.loger.name = "supervisord file logger"
         self.loger.setLevel(logging.INFO)
         self.formatter = logging.Formatter('%(asctime)s | %(levelname)s | %(message)s')
 
         self.handler = logging.FileHandler(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'logs/supervisor.log'))
         self.handler.setFormatter(self.formatter)
         self.loger.addHandler(self.handler)
+
+    def initStreamLogger(self):
+        self.loger = logging.getLogger("supervisor log stream")
+        self.loger.name = "supervisord stream logger"
+        self.loger.setLevel(logging.INFO)
+        self.formatter = logging.Formatter('%(asctime)s | %(levelname)s | %(message)s')
+
+        self.handler = logging.StreamHandler()
+        self.handler.setFormatter(self.formatter)
+        self.loger.addHandler(self.handler)
     
-    def collectLogs(self):
+    def collectSupervisorLogs(self):
         pass
 
-    def writeLogs(self):
+    def collectProgramLogs(self):
         pass
+
+    def writeSupervisorLogs(self):
+        pass
+
+    def writeProgramLogs(self):
+        self.writeErrorLogs()
+        self.writeOutputLogs()
+        pass
+
+    def writeErrorLogs(self):
+        pass
+
+    def writeOutputLogs(self):
+        pass
+
+    def setupHandlers(self):
+        self.initFileLogger()
+        self.initStreamLogger()
         
 
 

@@ -68,8 +68,7 @@ def main():
         supervisor = my_supervisord(args)
         #supervisor.print_config()
         supervisor.initServer()
-        
-        
+
         #supervisor.daemonize()
     except FileNotFoundError as e:
         print(e, file=sys.stderr)
