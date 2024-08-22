@@ -35,7 +35,7 @@ class my_supervisord:
 
     def collectLogs(self):
         logHandler = supervisorLogHandler(self.config_file)
-    
+
     def daemonize(self):
         # First fork to create a background process
         if os.fork() > 0:
@@ -63,7 +63,7 @@ def main():
     default_config_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'config.ini')
     parser.add_argument('-c', '--config_file', type=str, default=default_config_path, help='Path to the configuration file')
     args = parser.parse_args()
-    
+
     try:
         supervisor = my_supervisord(args)
         #supervisor.print_config()

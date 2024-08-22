@@ -6,76 +6,31 @@ import smtplib
 class supervisorLogHandler:
     def __init__(self, args):
         self.args = args
-        self.loggingConfig = {
-            'version': 1,
-            'disable_existing_loggers': False,
-            'formatters': {
-                'verbose': {
-                    'format': '%(asctime)s | %(levelname)s | %(message)s | %(pid)s | %(module)s | %(process)d | %(thread)d'
-                },
-            },
-            'handlers': {
-                'file': {
-                    'level': 'INFO',
-                    'class': 'logging.FileHandler',
-                    'filename': os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'logs/supervisor.log'),
-                    'formatter': 'verbose'
-                },
-                'stdout': {
-                    'level': 'INFO',
-                    'class': 'logging.StreamHandler',
-                    'formatter': 'verbose'
-                },
-                'stderr': {
-                    'level': 'ERROR',
-                    'class': 'logging.StreamHandler',
-                    'formatter': 'verbose'
-                },
-                'mail': {
-                    'level': 'ERROR',
-                    'class': 'logging.handlers.SMTPHandler',
-                    'mailhost': 'smtp.gmail.com',
-                    'fromaddr': 'yassir_ta@hotmail.com',
-                    'toaddrs': 'yassir.taous@gmail.com',
-                    'subject': 'Test mail from email handler',
-                    'credentials': ('', ''),
-                    'secure': None,
-                },
-            },
-            'loggers': {
-                'supervisor logger': {
-                    'handlers': ['file', 'stdout', 'stderr', 'mail'],
-                    'level': 'INFO',
-                    'propagate': True,
-                },
-            },
-            'filters': {},
-            'adapter': {},
-        }
+        self.loggingConfig = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'config/logging.conf')).read()
 
         self.name = "supervisord log handler"
-        self.loger = logging.getLogger("supervisor logger")
-        self.loger.setLevel(logging.INFO)
-        self.formatter = logging.Formatter('%(asctime)s | %(levelname)s | %(filename)s | %(message)s | %(pid)s')
-        self.logerAdapter = logging.LoggerAdapter(self.loger, {'pid': os.getpid()})
+        self.rootLoger = logging.getLogger("supervisor logger")
+        self.rootLoger.setLevel(logging.INFO)
+        self.rootFormatter = logging.Formatter('%(asctime)s | %(levelname)s | %(filename)s | %(message)s | %(pid)s')
+        self.logerAdapter = logging.LoggerAdapter(self.rootLoger, {'pid': os.getpid()})
         self.setupHandlers()
 
     def initFileHandler(self):
         self.handler = logging.FileHandler(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'logs/supervisor.log'))
-        self.handler.setFormatter(self.formatter)
-        self.loger.addHandler(self.handler)
+        self.handler.setFormatter(self.rootFormatter)
+        self.rootLoger.addHandler(self.handler)
 
-    def initStdoutHandler(self):
+    def initStdoutFilehandler(self):
         self.handler = logging.StreamHandler()
-        self.handler.setFormatter(self.formatter)
+        self.handler.setFormatter(self.rootFormatter)
         self.handler.setLevel(logging.INFO)
-        self.loger.addHandler(self.handler)
+        self.rootLoger.addHandler(self.handler)
     
-    def initStderrHandler(self):
+    def initStderrFileHandler(self):
         self.handler = logging.StreamHandler()
-        self.handler.setFormatter(self.formatter)
         self.handler.setLevel(logging.ERROR)
-        self.loger.addHandler(self.handler)
+        self.handler.setFormatter(self.rootFormatter)
+        self.rootLoger.addHandler(self.handler)
     
     def initEmailHandler(self):
         self.handler = logging.handlers.SMTPHandler(mailhost=('smtp.gmail.com', 587),
@@ -85,11 +40,10 @@ class supervisorLogHandler:
                                                     credentials=('', ''),
                                                     secure=None)
         self.handler.setLevel(logging.CRITICAL)
-        self.handler.setFormatter(self.formatter)
-        self.loger.addHandler(self.handler)
+        self.handler.setFormatter(self.rootFormatter)
+        self.rootLoger.addHandler(self.handler)
 
     def sendEmailNotification(self):
-        
         pass
 
     def initSyslogHandler(self):
@@ -108,20 +62,20 @@ class supervisorLogHandler:
         pass
 
     def writeProgramLogs(self):
-        self.writeErrorLogs()
-        self.writeOutputLogs()
+        self.writeStdErrorLogs()
+        self.writeStdOutLogs()
         pass
 
-    def writeErrorLogs(self):
+    def writeStdErrorLogs(self):
         pass
 
-    def writeOutputLogs(self):
+    def writeStdOutLogs(self):
         pass
 
     def setupHandlers(self):
         self.initFileHandler()
-        # self.initStdoutHandler()
-        # self.initStderrHandler()
+        # self.initStdoutFilehandler()
+        # self.initStderrFileHandler()
         self.initEmailHandler()
         
 
@@ -136,7 +90,7 @@ def main():
             print("This is normal behavior of logged program")
             i += 1
     except Exception as e:
-        supervisorloghandler.loger.error("This is an error message", exception=e)
+        supervisorloghandler.rootLoger.error("This is an error message", exception=e)
 
 __all__ = ['supervisorLogHandler']
 
