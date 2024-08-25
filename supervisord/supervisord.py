@@ -23,7 +23,6 @@ class my_supervisord:
         pass 
 
     def watchPrograms(self):
-
         self.collectLogs()
         pass
 

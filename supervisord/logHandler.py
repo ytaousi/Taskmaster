@@ -39,13 +39,30 @@ class supervisorLogHandler:
                 dest.write(formattedMessage)
 
 def main():
+
+    pids = [3356, 4489, 5567, 6678]
+    pidStdFileLogs = {
+        3356: ["program1name", "/home/normal-user/Desktop/Taskmaster/logs/program1name_stdout.log", "/home/normal-user/Desktop/Taskmaster/logs/program1name_stderr.log"],
+        4489: ["program2name", "/home/normal-user/Desktop/Taskmaster/logs/program2name_stdout.log", "/home/normal-user/Desktop/Taskmaster/logs/program2name_stderr.log"],
+        5567: ["program3name", "/home/normal-user/Desktop/Taskmaster/logs/program3name_stdout.log", "/home/normal-user/Desktop/Taskmaster/logs/program3name_stderr.log"],
+        6678: ["program4name", "/home/normal-user/Desktop/Taskmaster/logs/programn4ame_stdout.log", "/home/normal-user/Desktop/Taskmaster/logs/program4name_stderr.log"],
+    }
+
+    log_types = ["supervisord", "program"]
+
+    destionations = {
+        "supervisord": [sys.stdout, sys.stderr],
+        "program": [sys.stdout, sys.stderr],
+    }
+
     supervisorloghandler = supervisorLogHandler(args=[
-        "This is a test argument",
-        "This is a seconf test argument",
-        "This is a third test argument",
-        "This is a fourth test argument",
+        pidStdFileLogs,
+        pids,
+        log_types,
+        destionations,
     ])
 
+    
 
 if __name__ == '__main__':
     main()

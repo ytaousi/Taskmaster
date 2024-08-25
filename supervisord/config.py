@@ -26,7 +26,9 @@ class configFile:
             "stopwaitsecs",
             "stdout_logfile",
             "stderr_logfile",
-            "environment"
+            "environment",
+            "redirect_stderr",
+            "redirect_stdout"
         }
         self.config = configparser.ConfigParser(allow_no_value=True, strict=False)
         if not os.path.exists(self.args.config_file):
